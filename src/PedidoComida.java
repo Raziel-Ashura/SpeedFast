@@ -1,20 +1,12 @@
 public class PedidoComida extends Pedido {
 
-    //Constructor.
-    public PedidoComida(int idPedido, String direccionEntrega) {
-        super(idPedido, direccionEntrega, "Comida");
+    public PedidoComida(int idPedido, String direccionEntrega, double distanciaKm) {
+        super(idPedido, direccionEntrega, distanciaKm);
     }
 
+    //Calculo de tiempo de entrega legible.
     @Override
-    public void asignarRepartidor() {
-        System.out.println("[Pedido de Comida]");
-        System.out.println("Se requiere repartidor con mochila térmica.");
-    }
-
-    //Método con sobrecarga.
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("[Pedido de Comida]");
-        System.out.println("Repartidor " + nombreRepartidor +
-                " asignado (verificando mochila térmica)... OK");
+    public int calcularTiempoEntrega() {
+        return (int) (15 + (2 * distanciaKm));
     }
 }

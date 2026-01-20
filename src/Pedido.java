@@ -1,24 +1,21 @@
-public class Pedido {
+public abstract class Pedido {
 
-    //Variables de ejemplo del ejercicio.
+    //Variables protegidas para más placer.
     protected int idPedido;
     protected String direccionEntrega;
-    protected String tipoPedido;
+    protected double distanciaKm;
 
-    public Pedido(int idPedido, String direccionEntrega, String tipoPedido) {
+    public Pedido(int idPedido, String direccionEntrega, double distanciaKm) {
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.tipoPedido = tipoPedido;
+        this.distanciaKm = distanciaKm;
     }
 
-    //Método general.
-    public void asignarRepartidor() {
-        System.out.println("Asignando repartidor al pedido " + idPedido);
+    public void mostrarResumen() {
+        System.out.println("Pedido ID: " + idPedido);
+        System.out.println("Dirección: " + direccionEntrega);
+        System.out.println("Distancia: " + distanciaKm + " km");
     }
 
-    //Método con sobrecarga.
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("Repartidor " + nombreRepartidor +
-                " asignado al pedido " + idPedido);
-    }
+    public abstract int calcularTiempoEntrega();
 }

@@ -1,24 +1,12 @@
 public class PedidoEncomienda extends Pedido {
 
-    private double peso;
-
-    //Constructor.
-    public PedidoEncomienda(int idPedido, String direccionEntrega, double peso) {
-        super(idPedido, direccionEntrega, "Encomienda");
-        this.peso = peso;
+    public PedidoEncomienda(int idPedido, String direccionEntrega, double distanciaKm) {
+        super(idPedido, direccionEntrega, distanciaKm);
     }
 
-    //Método general.
+    //El tiempo de entrega de nuevo pero legible.
     @Override
-    public void asignarRepartidor() {
-        System.out.println("[Pedido de Encomienda]");
-        System.out.println("Validando peso y embalaje. Peso: " + peso + " kg... OK");
-    }
-
-    //Método con sobrecarga.
-    public void asignarRepartidor(String nombreRepartidor) {
-        System.out.println("[Pedido de Encomienda]");
-        System.out.println("Repartidor " + nombreRepartidor +
-                " asignado tras validar peso (" + peso + " kg) y embalaje.");
+    public int calcularTiempoEntrega() {
+        return (int) Math.round(20 + (1.5 * distanciaKm));
     }
 }
