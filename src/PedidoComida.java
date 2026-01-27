@@ -4,9 +4,22 @@ public class PedidoComida extends Pedido {
         super(idPedido, direccionEntrega, distanciaKm);
     }
 
-    //Calculo de tiempo de entrega legible.
+    //El método de asignar repartidor que llaman las otras clases. Pero al pedir comida.
+    @Override
+    public void asignarRepartidor() {
+        System.out.println("[Pedido Comida]");
+        repartidorAsignado = "Carlos"; //Creo un repartidor que se asigna automáticamente a este tipo de pedido.
+        System.out.println("Repartidor con mochila térmica asignado: " + repartidorAsignado);
+    }
+
+    //Lo mismo pero para calcular el tiempo de entrega. 2 minutos por kilómetro más 15 minutos por si acaso.
     @Override
     public int calcularTiempoEntrega() {
-        return (int) (15 + (2 * distanciaKm));
+        return (int) (15 + 2 * distanciaKm);
+    }
+
+    @Override
+    public void verHistorial() {
+
     }
 }

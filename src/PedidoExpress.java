@@ -4,7 +4,15 @@ public class PedidoExpress extends Pedido {
         super(idPedido, direccionEntrega, distanciaKm);
     }
 
-    //Nuevamente el cálculo del tiempo de entrega.
+    //El método de asignar repartidor pero para pedido express.
+    @Override
+    public void asignarRepartidor() {
+        System.out.println("[Pedido Express]");
+        System.out.println("Asignando repartidor más cercano disponible.");
+        repartidorAsignado = "Luis";//Lo mismo.
+    }
+
+    //Cálculo del tiempo de entrega. Este va volando. Pero se demora un poco más si está lejos.
     @Override
     public int calcularTiempoEntrega() {
         int tiempo = 10;
@@ -12,5 +20,10 @@ public class PedidoExpress extends Pedido {
             tiempo += 5;
         }
         return tiempo;
+    }
+
+    @Override
+    public void verHistorial() {
+
     }
 }
