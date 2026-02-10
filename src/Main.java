@@ -2,52 +2,35 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //Se llama al controlador.
-        ControladorDeEnvios controlador = new ControladorDeEnvios();
+        ZonaDeCarga zonaDeCarga = new ZonaDeCarga();
 
-        //Se crean los pedidos como dato base.
-        Pedido pedido1 = new PedidoComida(1, "Av. Austral 123", 4);
-        Pedido pedido2 = new PedidoEncomienda(2, "Calle Los Lagos 456", 7);
-        Pedido pedido3 = new PedidoExpress(3, "Pasaje Sur 789", 9);
+        //Se cargan pedidos con direcciones para el despliegue.
+        zonaDeCarga.agregarPedido(new Pedido(1, "Av. Austral 123, Puerto Montt"));
+        zonaDeCarga.agregarPedido(new Pedido(2, "Calle Los Lagos 456, Puerto Varas"));
+        zonaDeCarga.agregarPedido(new Pedido(3, "Pasaje Sur 789, Osorno"));
+        zonaDeCarga.agregarPedido(new Pedido(4, "Av. Costanera 1020, Castro"));
+        zonaDeCarga.agregarPedido(new Pedido(5, "Ruta 5 Sur Km 1015, Calbuco"));
 
-        //Se registran los pedidos en el controlador.
-        controlador.registrarPedido(pedido1);
-        controlador.registrarPedido(pedido2);
-        controlador.registrarPedido(pedido3);
+        //Se crean los repartidores.
+        Thread r1 = new Thread(new Repartidor("Andrés", zonaDeCarga));
+        Thread r2 = new Thread(new Repartidor("María", zonaDeCarga));
+        Thread r3 = new Thread(new Repartidor("Felipe", zonaDeCarga));
 
-        //Acá se asignaría automáticamente.
-        pedido1.asignarRepartidor();
-        System.out.println("\n");
-        pedido2.asignarRepartidor();
-        System.out.println("\n");
-        pedido3.asignarRepartidor();
+        //Se inician los hilos de cada pedido.
+        r1.start();
+        r2.start();
+        r3.start();
 
-        //Acá manual.
-        pedido1.asignarRepartidor("Carlos");
-        pedido2.asignarRepartidor("María");
-        pedido3.asignarRepartidor("Felipe");
+        //Se ejecutan los join() para que se asigne y ejecute uno después del otro. En un try en caso que haya algun problema.
+        try {
+            r1.join();
+            r2.join();
+            r3.join();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
 
-        //Mostrar resumen y tiempo estimado.
-        System.out.println("\n\n[Estimado de Tiempos]\n");
-        pedido1.mostrarResumen();
-        System.out.println("Tiempo entrega: " + pedido1.calcularTiempoEntrega() + " min\n");
-
-        pedido2.mostrarResumen();
-        System.out.println("Tiempo entrega: " + pedido2.calcularTiempoEntrega() + " min\n");
-
-        pedido3.mostrarResumen();
-        System.out.println("Tiempo entrega: " + pedido3.calcularTiempoEntrega() + " min\n");
-
-        //Despacho.
-        pedido1.despachar();
-        pedido2.despachar();
-        pedido3.despachar();
-        System.out.println("\n");
-
-        //Cancelamos uno. Ya había salido el repartidos ='(.
-        pedido2.cancelar();
-
-        //Y acá mostramos el historial.
-        controlador.verHistorial();
+        //Mensaje final.
+        System.out.println("\nTodos los pedidos han sido entregados correctamente.");
     }
 }
