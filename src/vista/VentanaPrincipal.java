@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class VentanaPrincipal extends JFrame {
 
+    //Acá tenemos los botones de cada sub-menu y el llamado a cada una de esas ventanas.
     public VentanaPrincipal() {
 
         setTitle("SpeedFast - Sistema de Gestión");

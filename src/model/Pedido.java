@@ -2,6 +2,7 @@ package model;
 
 public class Pedido {
 
+    //Objeto pedido, con gettes, setters, constructores, etc etc
     private int id;
     private String direccion;
     private String tipo;

@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class VentanaPedidos extends JFrame {
 
+    //Lo mismo para pedidos
     private JTextField txtDireccion;
     private JComboBox<String> comboTipo, comboEstado;
     private JTable tabla;

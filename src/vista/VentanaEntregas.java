@@ -11,6 +11,7 @@ import java.time.LocalTime;
 
 public class VentanaEntregas extends JFrame {
 
+    //Y finalmente lo mismo para entregas
     private JComboBox<Pedido> comboPedido;
     private JComboBox<Repartidor> comboRepartidor;
     private JTable tabla;

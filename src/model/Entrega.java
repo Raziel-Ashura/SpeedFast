@@ -3,6 +3,7 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+//Lo mismo que en cliente pero para entrega, con sus variables.
 public class Entrega {
 
     private int id;

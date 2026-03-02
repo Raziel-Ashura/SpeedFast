@@ -2,6 +2,7 @@ package model;
 
 public class Repartidor {
 
+    //Lo mismo repartidor
     private int id;
     private String nombre;
 

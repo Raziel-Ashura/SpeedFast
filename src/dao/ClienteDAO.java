@@ -6,6 +6,8 @@ import java.util.*;
 
 public class ClienteDAO {
 
+    //Aquí creamos un cliente, tomamos los datos y los vamos ordenando en lo que después ingresaremos a la base de datos.
+    //Haremos lo mismo para los repartidores, pedidos y entrega. Cada uno con sus valores correspondientes.
     public void create(Cliente c) {
         String sql = "INSERT INTO clientes(nombre, telefono) VALUES (?,?)";
 

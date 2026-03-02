@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class VentanaRepartidores extends JFrame {
 
+    //Lo mismo para repartidores
     private JTextField txtNombre;
     private JTable tabla;
     private DefaultTableModel modelo;

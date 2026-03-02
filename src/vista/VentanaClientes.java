@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class VentanaClientes extends JFrame {
 
+    //Manejamos el ingreso de un nuevo cliente con los datos asociados
     private JTextField txtNombre, txtTelefono;
     private JTable tabla;
     private DefaultTableModel modelo;

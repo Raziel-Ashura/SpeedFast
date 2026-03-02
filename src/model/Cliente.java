@@ -1,5 +1,6 @@
 package model;
 
+//Constructor
 public class Cliente {
 
     private int id;
@@ -19,13 +20,30 @@ public class Cliente {
         this.telefono = telefono;
     }
 
-    public int getId() { return id; }
-    public String getNombre() { return nombre; }
-    public String getTelefono() { return telefono; }
+    //Getter y setter
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) { this.id = id; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public void setTelefono(String telefono) { this.telefono = telefono; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
     @Override
     public String toString() {
